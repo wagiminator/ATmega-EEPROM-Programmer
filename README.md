@@ -1,4 +1,4 @@
-# ATmega-EEPROM-Programmer
+# Parallel EEPROM Programmer based on ATmega8
 Parallel EEPROM Programmer for 28C64B and 28C256 featuring:
 - GUI-based front-end written in Python,
 - possibility to access the programmer via a serial monitor,
