@@ -24,7 +24,8 @@
 //
 // Written for ATmega 8/168/328, clockspeed 16 MHz external.
 //
-// 2019/2020 by Stefan Wagner
+// 2019/2020 by Stefan Wagner (https://easyeda.com/wagiminator)
+// License: http://creativecommons.org/licenses/by-sa/3.0/
 
 
 // Libraries
