@@ -7,6 +7,8 @@ Parallel EEPROM Programmer for 28C64B and 28C256 featuring:
 - 1 Mbps serial interface via USB,
 - binary data transmission.
 
+Video: https://youtu.be/FkSXgdC_ToQ
+
 Project on EasyEDA: https://easyeda.com/wagiminator/y-atmega-eeprom-programmer
 
 ![IMG_20190915_113348_x.jpg](https://image.easyeda.com/pullimage/puRlUpx0qSSkZv3Hg1vnBB2PodEWZKtM7SBnJMOG.jpeg)
