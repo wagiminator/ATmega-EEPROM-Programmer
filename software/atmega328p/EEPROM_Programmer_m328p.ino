@@ -158,13 +158,13 @@ void printNibble(uint8_t nibble) {
 // Convert byte into hex characters and print it via UART
 void printByte(uint8_t value) {
   printNibble (value >> 4);
-  printNibble (value & 15);
+  printNibble (value & 0x0f);
 }
 
 // Convert word into hex characters and print it via UART
 void printWord(uint16_t value) {
   printByte(value >> 8);
-  printByte(value & 255);
+  printByte(value);
 }
 
 // Convert character representing a hex nibble into 4-bit value
@@ -177,15 +177,15 @@ uint8_t hexDigit(char c) {
 
 // Convert string containing a hex byte into 8-bit value
 uint8_t hexByte(char* a) {
-  return ((hexDigit(a[0])*16) + hexDigit(a[1]));
+  return ((hexDigit(a[0]) << 4) + hexDigit(a[1]));
 }
 
 // Convert string containing a hex word into 16-bit value
 uint16_t hexWord(char* data) {
-  return ((hexDigit(data[0])*4096)+
-    (hexDigit(data[1])*256)+
-    (hexDigit(data[2])*16)+
-    (hexDigit(data[3]))); 
+  return ((hexDigit(data[0]) << 12) +
+          (hexDigit(data[1]) <<  8) +
+          (hexDigit(data[2]) <<  4) +
+          (hexDigit(data[3]))); 
 }
 
 // -----------------------------------------------------------------------------
