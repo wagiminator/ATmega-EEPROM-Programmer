@@ -315,7 +315,8 @@ void fillMemory(uint16_t addr, uint16_t dataLength, uint8_t value) {
 void printContents(uint16_t addr, uint16_t count) {
   ReadLEDon;                                  // turn on read LED
   for (uint16_t base = 0; base < count; base += 16) {
-    char ascii[16];
+    static char ascii[17];
+    ascii[16] = 0;
     uint8_t databyte;
     printWord (base); UART_print(":  ");
     for (uint8_t offset = 0; offset <= 15; offset += 1) {
