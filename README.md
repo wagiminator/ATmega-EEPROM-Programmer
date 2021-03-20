@@ -13,10 +13,10 @@ Parallel EEPROM Programmer for 28C64B and 28C256 featuring:
 - Design Files (EasyEDA): https://easyeda.com/wagiminator/y-atmega-eeprom-programmer
 
 # Hardware
-The heart of the EEPROM programmer is an ATmega8 microcontroller. The address bus of the EEPROM (up to 15 bit) is controlled via two 74HC595 shift registers using hardware SPI @ 8 Mbps. The data bus is controlled directly via the pins of the ATmega. The data connection to the PC runs via the hardware UART interface of the ATmega transfering the data in binary format with up to 1 Mbps. A CH330N (or CH340N) converts the serial data for USB 2.0.
+The heart of the EEPROM programmer is an ATmega8 microcontroller. The address bus of the EEPROM (up to 15 bit) is controlled via two 74HC595 shift registers using hardware SPI @ 8 Mbps. The data bus is controlled directly via the pins of the ATmega. Address and data bus are simultaneously driven to achieve the maximum data transfer rate. The data connection to the PC runs via the hardware UART interface of the ATmega transfering the data in binary format with up to 1 Mbps. A CH330N (or CH340N) converts the serial data for USB 2.0.
 
 # 28C64B and 28C256 EEPROMs
-The EEPROMs is a high-performance electrically erasable and programmable read-only memory. The device offers access times to 150 ns with power dissipation of just 440 mW. When the device is deselected, the CMOS standby current is less than 200 μA.
+This EEPROM is a high-performance electrically erasable and programmable read-only memory. The device offers access times to 150 ns with power dissipation of just 440 mW. When the device is deselected, the CMOS standby current is less than 200 μA.
 The EEPROM is accessed like a Static RAM for the read or write cycle without the need for external components. The device contains a 64-byte page register to allow writing of up to 64 bytes simultaneously. The end of a write cycle can be detected by data polling. Once the end of a write cycle has been detected a new access for a read or write can begin.
 An optional software data protection mechanism is available to guard against inadvertent writes. The EEPROM is ideally suited to replace (E)EPROMs in old 8-bit computers.
 
