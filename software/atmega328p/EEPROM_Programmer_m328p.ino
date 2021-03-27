@@ -98,8 +98,8 @@ char    cmdBuffer[16];                        // command buffer
 // UART Implementation (1M BAUD)
 // -----------------------------------------------------------------------------
 
-#define UART_available()  (UCSR0A & (1<<RXC0))
-#define UART_read()       UDR0
+#define UART_available()  (UCSR0A & (1<<RXC0))  // check if byte was received
+#define UART_read()       UDR0                  // read received byte
 
 // UART init
 void UART_init(void) {
@@ -115,11 +115,7 @@ void UART_write(uint8_t data) {
 
 // UART send string
 void UART_print(const char *str) {
-  while (*str) {                              // repeat until string terminator
-    while(!(UCSR0A & (1<<UDRE0)));            // wait until previous byte is completed
-    UDR0 = *str;                              // send character
-    str++;                                    // next character
-  }
+  while (*str) UART_write(*str++);            // write characters of string
 }
 
 // UART send string with new line
@@ -313,22 +309,21 @@ void fillMemory(uint16_t addr, uint16_t dataLength, uint8_t value) {
 
 // Read content of EEPROM and print hex dump via UART
 void printContents(uint16_t addr, uint16_t count) {
+  static char ascii[17];                      // buffer string
+  ascii[16] = 0;                              // string terminator
   ReadLEDon;                                  // turn on read LED
   for (uint16_t base = 0; base < count; base += 16) {
-    static char ascii[17];
-    ascii[16] = 0;
-    uint8_t databyte;
-    printWord (base); UART_print(":  ");
+    printWord(base); UART_print(":  ");
     for (uint8_t offset = 0; offset <= 15; offset += 1) {
-      databyte = readDataByte(addr + base + offset);
+      uint8_t databyte = readDataByte(addr + base + offset);
       if (databyte > 31 && databyte < 127) ascii[offset] = databyte;
       else ascii[offset] = '.';
-      printByte (databyte);
+      printByte(databyte);
       UART_print(" ");
     }
     UART_print(" "); UART_println(ascii);
   }
-  ReadLEDoff;                                 // turn on read LED
+  ReadLEDoff;                                 // turn off read LED
 }
 
 // Read content of EEPROM and send it as binary data via UART
