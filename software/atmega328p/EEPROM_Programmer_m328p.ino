@@ -28,7 +28,9 @@
 // Compiler LTO:  LTO enabled
 // Variant:       328P / 328PA
 // Bootloader:    No bootloader
-// Leave the rest on default settings. Don't forget to "Burn bootloader" !
+// Leave the rest on default settings. Don't forget to "Burn bootloader"!
+// No Arduino core functions or libraries are used. Use the makefile if 
+// you want to compile without Arduino IDE.
 //
 // 2019 by Stefan Wagner 
 // Project Files (EasyEDA): https://easyeda.com/wagiminator

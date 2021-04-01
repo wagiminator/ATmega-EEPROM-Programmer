@@ -13,7 +13,7 @@ Parallel EEPROM Programmer for 28C64B and 28C256 featuring:
 - Design Files (EasyEDA): https://easyeda.com/wagiminator/y-atmega-eeprom-programmer
 
 # Hardware
-The heart of the EEPROM programmer is an ATmega8 microcontroller. The address bus of the EEPROM (up to 15 bit) is controlled via two 74HC595 shift registers using hardware SPI @ 8 Mbps. The data bus is controlled directly via the pins of the ATmega. Address and data bus are simultaneously driven to achieve the maximum data transfer rate. The data connection to the PC runs via the hardware UART interface of the ATmega transfering the data in binary format with up to 1 Mbps. A CH330N (or CH340N) converts the serial data for USB 2.0.
+The heart of the EEPROM programmer is an ATmega8 microcontroller. The address bus of the EEPROM (up to 15 bit) is controlled via two daisy-chained 74HC595 shift registers using hardware SPI @ 8 Mbps. The data bus is controlled directly via the pins of the ATmega. Address and data bus are simultaneously driven to achieve the maximum data transfer rate. The data connection to the PC runs via the hardware UART interface of the ATmega transfering the data in binary format with up to 1 Mbps. A CH330N (or CH340N) converts the serial data for USB 2.0.
 
 # 28C64B and 28C256 EEPROMs
 This EEPROM is a high-performance electrically erasable and programmable read-only memory. The device offers access times to 150 ns with power dissipation of just 440 mW. When the device is deselected, the CMOS standby current is less than 200 μA.
@@ -51,7 +51,7 @@ On the microcontroller side, data is received via UART and written to the EEPROM
 |l                |Lock EEPROM (enable write protection)|
 |u                |Unlock EEPROM (disable write protection)|
 
-Any serial monitor (set BAUD rate to 1000000) can be used for control from the PC. However, in order to use the full capabilities, it is recommended to use the attached Python scripts. The script "eepromgui.py" offers a simple graphical user interface and functions for reading and writing binary files as well as for displaying the EEPROM content. The scripts have only been tested on Linux, but should work on all operating systems. A driver for the CH330N/CH340N may be required for Windows.
+Any serial monitor (set BAUD rate to 1000000) can be used for control from the PC. However, in order to use the full capabilities, it is recommended to use the attached Python scripts. The script "eepromgui.py" offers a simple graphical user interface and functions for reading and writing binary files as well as for displaying the EEPROM content. The scripts have only been tested on Linux, but should work on all operating systems. A [driver for the CH330N/CH340N](https://learn.sparkfun.com/tutorials/how-to-install-ch340-drivers/all#drivers-if-you-need-them) may be required for Windows.
 
 ![EEPROM_pic2.png](https://raw.githubusercontent.com/wagiminator/ATmega-EEPROM-Programmer/master/documentation/EEPROM_pic2.png)
 ![EEPROM_pic3.png](https://raw.githubusercontent.com/wagiminator/ATmega-EEPROM-Programmer/master/documentation/EEPROM_pic3.png)
@@ -91,7 +91,7 @@ Any serial monitor (set BAUD rate to 1000000) can be used for control from the P
 
 # Operating Instructions
 1. Connect the EEPROM Programmer via USB to your PC.
-2. Insert your EEPROM into the ZF socket with pin1 facing to the handle of the socket.
+2. Insert your EEPROM into the ZIF socket with pin1 facing to the handle of the socket.
 3. Run the eepromgui.py application.
 
 # References, Links and Notes
@@ -100,3 +100,9 @@ Any serial monitor (set BAUD rate to 1000000) can be used for control from the P
 3. [ATmega8A Datasheet](https://ww1.microchip.com/downloads/en/DeviceDoc/ATmega8A-Data-Sheet-DS40001974B.pdf)
 4. [74HC595 Datasheet](https://www.diodes.com/assets/Datasheets/74HC595.pdf)
 5. [CH330N Datasheet](https://datasheet.lcsc.com/szlcsc/2008191734_WCH-Jiangsu-Qin-Heng-CH330N_C108996.pdf)
+
+# License
+![license.png](https://i.creativecommons.org/l/by-sa/3.0/88x31.png)
+
+This work is licensed under Creative Commons Attribution-ShareAlike 3.0 Unported License. 
+(http://creativecommons.org/licenses/by-sa/3.0/)
