@@ -101,6 +101,8 @@ Any serial monitor (set BAUD rate to 1000000) can be used for control from the P
 4. [74HC595 Datasheet](https://www.diodes.com/assets/Datasheets/74HC595.pdf)
 5. [CH330N Datasheet](https://datasheet.lcsc.com/szlcsc/2008191734_WCH-Jiangsu-Qin-Heng-CH330N_C108996.pdf)
 
+![EEPROM_pic8.jpg](https://raw.githubusercontent.com/wagiminator/ATmega-EEPROM-Programmer/master/documentation/EEPROM_pic8.jpg)
+
 # License
 ![license.png](https://i.creativecommons.org/l/by-sa/3.0/88x31.png)
 
