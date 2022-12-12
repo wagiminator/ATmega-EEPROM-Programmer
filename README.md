@@ -84,10 +84,9 @@ Any serial monitor (set BAUD rate to 1000000) can be used for control from the P
 ### If using the makefile (Linux/Mac)
 - Make sure you have installed [avr-gcc toolchain and avrdude](http://maxembedded.com/2015/06/setting-up-avr-gcc-toolchain-on-linux-and-mac-os-x/).
 - Connect your programmer to your PC and to the ICSP header of the device.
-- Open the makefile and change the programmer if you are not using usbasp.
 - Open a terminal.
 - Navigate to the folder with the makefile and the Arduino sketch.
-- Run "make install" to compile, burn the fuses and upload the firmware.
+- Run `PROGRMR=usbasp make install` to compile, burn the fuses and upload the firmware (change PROGRMR accordingly).
 
 ## Installing Python and Drivers
 Python needs to be installed on your PC in order to use the software. Most Linux distributions already include this. Windows users can follow these [instructions](https://www.pythontutorial.net/getting-started/install-python/). In addition PySerial and Tkinter (8.6 or newer) must be installed. However, these are already included in most Python installations.
